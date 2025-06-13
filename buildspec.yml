@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - pip install -r requirements-dev.txt
+  pre_build:
+    commands:
+      - pytest -q
+  build:
+    commands:
+      # package layer with dependencies
+      - pip install -r src/layers/shared/requirements.txt -t src/layers/shared/python
+      - zip -r dist/shared_layer.zip src/layers/shared
+      # proceed with Terraform
+      - make layer-package
+      - terraform -chdir=terraform/dev init -input=false
+      - terraform -chdir=terraform/dev apply -auto-approve -input=false

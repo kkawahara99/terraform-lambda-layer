@@ -1,0 +1,49 @@
+# --- Python ---------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.Python
+.env
+.venv/
+venv/
+# pytest
+.pytest_cache/
+.coverage
+
+# --- Layer build artifacts ------------------
+src/layers/shared/build/
+dist/
+*.zip
+
+# --- Terraform ------------------------------
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --- AWS / Credentials ----------------------
+*.pem
+*.key
+.aws-sam/
+
+# --- IDE / Editor ---------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Logs -----------------------------------
+*.log
+
+# --- Mac / Linux ----------------------------
+*.DS_Store
